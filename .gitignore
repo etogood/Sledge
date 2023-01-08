@@ -1,3 +1,11 @@
+# Directories
+.vs/
+bin/
+bin-int/
+
+# VS Project files
+*.user
+
 # Prerequisites
 *.d
 
