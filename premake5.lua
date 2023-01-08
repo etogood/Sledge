@@ -9,6 +9,11 @@ workspace "Sledge"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+includeDir = {}
+includeDir["GLFW"] = "Sledge/vendor/GLFW/include"
+
+include "Sledge/vendor/GLFW"
+
 project "Sledge"
     location "Sledge"
     kind "SharedLib"
@@ -20,14 +25,23 @@ project "Sledge"
     pchheader "slpch.h"
     pchsource "Sledge/src/slpch.cpp"
 
-    files {
+    files 
+    {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
     }
 
-    includedirs {
+    includedirs 
+    {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{includeDir.GLFW}"
+    }
+
+    links 
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -35,12 +49,14 @@ project "Sledge"
         staticruntime "On"
         systemversion "latest"
 
-        defines {
+        defines 
+        {
             "SL_PLATFORM_WINDOWS",
             "SL_BUILD_DLL"
         }
 
-        postbuildcommands {
+        postbuildcommands 
+        {
             ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
         }
     filter "configurations:Debug"
@@ -63,17 +79,20 @@ project "Sandbox"
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
 
-    files {
+    files 
+    {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
     }
 
-    includedirs {
+    includedirs 
+    {
         "Sledge/vendor/spdlog/include",
         "Sledge/src"
     }
 
-    links {
+    links 
+    {
         "Sledge"
     }
 
@@ -82,7 +101,8 @@ project "Sandbox"
         staticruntime "On"
         systemversion "latest"
 
-        defines {
+        defines 
+        {
             "SL_PLATFORM_WINDOWS"
         }
 

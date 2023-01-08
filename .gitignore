@@ -5,6 +5,8 @@ bin-int/
 
 # VS Project files
 *.user
+*.sln
+*.vcxproj*
 
 # Prerequisites
 *.d
