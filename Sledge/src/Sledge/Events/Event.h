@@ -2,9 +2,6 @@
 
 #include "Sledge/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Sledge
 {
 	enum class EventType

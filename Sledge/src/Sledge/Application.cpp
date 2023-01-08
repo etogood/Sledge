@@ -1,3 +1,4 @@
+#include "slpch.h"
 #include "Application.h"
 
 #include "Sledge/Events/ApplicationEvent.h"

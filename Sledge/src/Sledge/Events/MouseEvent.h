@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Sledge
 {
 	class SLEDGE_API MouseMovedEvent : public Event

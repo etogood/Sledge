@@ -17,6 +17,9 @@ project "Sledge"
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
 
+    pchheader "slpch.h"
+    pchsource "Sledge/src/slpch.cpp"
+
     files {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
