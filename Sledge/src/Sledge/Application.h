@@ -9,6 +9,10 @@ namespace Sledge {
         Application() = default;
         virtual ~Application() = default;
 
-        void run();
+        void Run();
     };
+
+    //To be defined in CLIENT
+    Application* CreateApplication();
+
 }

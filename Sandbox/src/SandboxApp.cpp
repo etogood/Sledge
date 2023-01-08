@@ -6,8 +6,7 @@ public:
     ~Sandbox() {}
 };
 
-int main(){
-	const auto sandbox = new Sandbox();
-    sandbox->run();
-    delete sandbox;
+Sledge::Application* Sledge::CreateApplication()
+{
+    return new Sandbox();
 }

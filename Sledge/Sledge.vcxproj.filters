@@ -13,9 +13,18 @@
     <ClInclude Include="src\Sledge\Core.h">
       <Filter>Sledge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sledge\EntryPoint.h">
+      <Filter>Sledge</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sledge\Log.h">
+      <Filter>Sledge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sledge\Application.cpp">
+      <Filter>Sledge</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sledge\Log.cpp">
       <Filter>Sledge</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #include "Application.h"
 
 namespace Sledge{
-    void Application::run(){
+    void Application::Run(){
         while(true);
     }
 }

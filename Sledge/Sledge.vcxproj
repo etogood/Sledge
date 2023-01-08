@@ -149,9 +149,12 @@
     <ClInclude Include="src\Sledge.h" />
     <ClInclude Include="src\Sledge\Application.h" />
     <ClInclude Include="src\Sledge\Core.h" />
+    <ClInclude Include="src\Sledge\EntryPoint.h" />
+    <ClInclude Include="src\Sledge\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sledge\Application.cpp" />
+    <ClCompile Include="src\Sledge\Log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
