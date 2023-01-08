@@ -4,6 +4,9 @@
     <Filter Include="Sledge">
       <UniqueIdentifier>{B9A056D1-A542-81A7-8EFD-94FB7A3E08F8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sledge\Events">
+      <UniqueIdentifier>{7D22ABE0-E9E2-2617-B21D-70941E9D6BF3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sledge.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Sledge\EntryPoint.h">
       <Filter>Sledge</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sledge\Events\ApplicationEvent.h">
+      <Filter>Sledge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sledge\Events\Event.h">
+      <Filter>Sledge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sledge\Events\KeyEvent.h">
+      <Filter>Sledge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sledge\Events\MouseEvent.h">
+      <Filter>Sledge\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Sledge\Log.h">
       <Filter>Sledge</Filter>

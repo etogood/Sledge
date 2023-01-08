@@ -6,8 +6,8 @@ namespace Sledge {
     class SLEDGE_API Application {
         public:
         
-        Application() = default;
-        virtual ~Application() = default;
+        Application();
+        virtual ~Application();
 
         void Run();
     };
