@@ -34,4 +34,3 @@ namespace Sledge
 #define SL_WARN(...)		::Sledge::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define SL_ERROR(...)		::Sledge::Log::GetClientLogger()->error(__VA_ARGS__)
 #define SL_FATAL(...)		::Sledge::Log::GetClientLogger()->fatal(__VA_ARGS__)
-

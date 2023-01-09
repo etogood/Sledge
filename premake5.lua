@@ -7,6 +7,8 @@ workspace "Sledge"
         "Dist"
     }
 
+    startproject "Sandbox"
+
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includeDir = {}
