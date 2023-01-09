@@ -6,5 +6,7 @@
 #include "Sledge/Log.h"
 
 // Entry point-------------------------------------
+
 #include "Sledge/EntryPoint.h"
+
 // ------------------------------------------------

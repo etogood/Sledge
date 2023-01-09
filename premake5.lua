@@ -60,17 +60,24 @@ project "Sledge"
             ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
         }
     filter "configurations:Debug"
-        defines "SL_DEBUG"
+        runtime "Debug"
+        defines {
+            "SL_DEBUG",
+            "SL_ENABLE_ASSERTS"
+        }
         symbols "On"
+        staticruntime "off"
 
     filter "configurations:Release"
         defines "SL_RELEASE"
         optimize "On"
+        staticruntime "off"
 
     filter "configurations:Dist"
         defines "SL_DIST"
         optimize "On"
-
+        staticruntime "off"
+        
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"

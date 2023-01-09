@@ -12,7 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sledge/Log.h"
+
 #ifdef SL_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
-
