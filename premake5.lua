@@ -3,8 +3,7 @@ workspace "Sledge"
 
     configurations {
         "Debug",
-        "Release",
-        "Dist"
+        "Release"
     }
 
     startproject "Sandbox"
@@ -63,21 +62,17 @@ project "Sledge"
         }
     filter "configurations:Debug"
         runtime "Debug"
+		symbols "on"
+        staticruntime "off"
         defines {
             "SL_DEBUG",
             "SL_ENABLE_ASSERTS"
         }
-        symbols "On"
-        staticruntime "off"
 
     filter "configurations:Release"
         defines "SL_RELEASE"
-        optimize "On"
-        staticruntime "off"
-
-    filter "configurations:Dist"
-        defines "SL_DIST"
-        optimize "On"
+        runtime "Release"
+		optimize "on"
         staticruntime "off"
         
 project "Sandbox"
@@ -118,11 +113,9 @@ project "Sandbox"
     filter "configurations:Debug"
         defines "SL_DEBUG"
         symbols "On"
+        staticruntime "off"
 
     filter "configurations:Release"
         defines "SL_RELEASE"
         optimize "On"
-
-    filter "configurations:Dist"
-        defines "SL_DIST"
-        optimize "On"
+        staticruntime "off"
