@@ -1,7 +1,7 @@
 #include "slpch.h"
 #include "Application.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Sledge{
 
@@ -10,7 +10,7 @@ namespace Sledge{
     Application::Application()
     {
         m_Window = std::unique_ptr<Window>(Window::Create());
-        m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+        m_Window->SetEventCallback( BIND_EVENT_FN(Application::OnEvent));
     }
 
     Application::~Application()
@@ -49,10 +49,11 @@ namespace Sledge{
     void Application::Run(){
         WindowResizeEvent e(1280, 720);
         SL_TRACE(e);
+        glClearColor(1, 0, 1, 1);
 
         while(m_Running)
         {
-            glClearColor(1, 0, 1, 1);
+            
             glClear(GL_COLOR_BUFFER_BIT);
 
             for (Layer* layer : m_LayerStack)

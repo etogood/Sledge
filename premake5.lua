@@ -12,8 +12,10 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includeDir = {}
 includeDir["GLFW"] = "Sledge/vendor/GLFW/include"
+includeDir["Glad"] = "Sledge/vendor/Glad/include"
 
 include "Sledge/vendor/GLFW"
+include "Sledge/vendor/Glad"
 
 project "Sledge"
     location "Sledge"
@@ -36,12 +38,14 @@ project "Sledge"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{includeDir.GLFW}"
+        "%{includeDir.GLFW}",
+        "%{includeDir.Glad}"
     }
 
     links 
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -53,13 +57,15 @@ project "Sledge"
         defines 
         {
             "SL_PLATFORM_WINDOWS",
-            "SL_BUILD_DLL"
+            "SL_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands 
         {
             ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
         }
+        
     filter "configurations:Debug"
         runtime "Debug"
 		symbols "on"
