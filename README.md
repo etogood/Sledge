@@ -1,5 +1,5 @@
 # Sledge
-OpenGL Engine in work
+OpenGL 3D Engine in progress
 
 #To initialize:
 ~~~
