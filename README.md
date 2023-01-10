@@ -1,7 +1,7 @@
 # Sledge
 OpenGL 3D Engine in progress
 
-#To initialize:
+# Initialization
 ~~~
 git clone https://github.com/etogood/Sledge
 cd Sledge
