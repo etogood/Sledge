@@ -4,3 +4,6 @@
 [submodule "Sledge/vendor/GLFW"]
 	path = Sledge/vendor/GLFW
 	url = https://github.com/etogood/glfw
+[submodule "Sledge/vendor/imgui"]
+	path = Sledge/vendor/imgui
+	url = https://github.com/etogood/imgui
