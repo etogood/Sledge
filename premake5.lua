@@ -1,21 +1,22 @@
 workspace "Sledge"
     architecture "x64"
+    startproject "Sandbox"
 
     configurations {
         "Debug",
         "Release"
     }
 
-    startproject "Sandbox"
-
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includeDir = {}
 includeDir["GLFW"] = "Sledge/vendor/GLFW/include"
 includeDir["Glad"] = "Sledge/vendor/Glad/include"
+includeDir["ImGui"] = "Sledge/vendor/imgui"
 
 include "Sledge/vendor/GLFW"
 include "Sledge/vendor/Glad"
+include "Sledge/vendor/imgui"
 
 project "Sledge"
     location "Sledge"
@@ -39,13 +40,15 @@ project "Sledge"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{includeDir.GLFW}",
-        "%{includeDir.Glad}"
+        "%{includeDir.Glad}",
+        "%{includeDir.ImGui}"
     }
 
     links 
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 
@@ -58,7 +61,8 @@ project "Sledge"
         {
             "SL_PLATFORM_WINDOWS",
             "SL_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
+            "GLFW_INCLUDE_NONE",
+            "IMGL3W_IMPL"
         }
 
         postbuildcommands 
