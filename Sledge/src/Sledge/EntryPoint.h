@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef SL_PLATFORM_WINDOWS
+#if SL_PLATFORM_WINDOWS
 
 extern Sledge::Application* Sledge::CreateApplication();
 

@@ -14,14 +14,17 @@ includeDir["GLFW"] = "Sledge/vendor/GLFW/include"
 includeDir["Glad"] = "Sledge/vendor/Glad/include"
 includeDir["ImGui"] = "Sledge/vendor/imgui"
 
-include "Sledge/vendor/GLFW"
-include "Sledge/vendor/Glad"
-include "Sledge/vendor/imgui"
+group "Dependencies"
+    include "Sledge/vendor/GLFW"
+    include "Sledge/vendor/Glad"
+    include "Sledge/vendor/imgui"
+group ""
 
 project "Sledge"
     location "Sledge"
     kind "SharedLib"
     language "C++"
+    staticruntime "off"
 
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -54,7 +57,6 @@ project "Sledge"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines 
@@ -67,28 +69,26 @@ project "Sledge"
 
         postbuildcommands 
         {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
+            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/Sandbox/\"")
         }
         
     filter "configurations:Debug"
         runtime "Debug"
 		symbols "on"
-        staticruntime "off"
         defines {
-            "SL_DEBUG",
-            "SL_ENABLE_ASSERTS"
+            "SL_DEBUG"
         }
 
     filter "configurations:Release"
         defines "SL_RELEASE"
         runtime "Release"
 		optimize "on"
-        staticruntime "off"
         
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+    staticruntime "off"
 
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -112,7 +112,6 @@ project "Sandbox"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines 
@@ -123,9 +122,11 @@ project "Sandbox"
     filter "configurations:Debug"
         defines "SL_DEBUG"
         symbols "On"
-        staticruntime "off"
+        runtime "Debug"
+        
 
     filter "configurations:Release"
         defines "SL_RELEASE"
         optimize "On"
-        staticruntime "off"
+        runtime "Release"
+        

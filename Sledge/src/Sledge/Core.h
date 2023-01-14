@@ -7,7 +7,11 @@
         #define SLEDGE_API __declspec(dllimport)
     #endif
 #else
-    #error Sledge only supports Windows!
+	#error "Unknown platform!"
+#endif
+
+#ifdef HZ_DEBUG
+	#define SL_ENABLE_ASSERTS
 #endif
 
 #ifdef SL_ENABLE_ASSERTS
@@ -17,7 +21,6 @@
     #define SL_ASSERT(x, ...)
     #define SL_CORE_ASSERT(x, ...)
 #endif
-
 
 #define BIT(x) (1 << (x))
 
