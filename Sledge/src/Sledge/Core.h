@@ -6,6 +6,8 @@
     #else
         #define SLEDGE_API __declspec(dllimport)
     #endif
+#elif defined(__APPLE__)
+	#include <TargetConditionals.h>
 #else
 	#error "Unknown platform!"
 #endif
