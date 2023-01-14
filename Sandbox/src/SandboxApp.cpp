@@ -22,7 +22,7 @@ class Sandbox : public Sledge::Application {
 public:
     Sandbox()
     {
-        PushLayer(new ExampleLayer());
+        //PushLayer(new ExampleLayer());
         PushOverlay(new Sledge::ImGuiLayer());
     }
     ~Sandbox() {}

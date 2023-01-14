@@ -60,6 +60,7 @@ namespace Sledge{
         SL_TRACE(e);
         glClearColor(1, 0, 1, 1);
 
+        auto time = 0;
         while(m_Running)
         {
             
@@ -67,9 +68,12 @@ namespace Sledge{
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
-
-            auto [x, y] = Input::GetMousePosition();
-            SL_CORE_TRACE("{0}, {1}", x, y);
+            time++;
+            if (time % 60 == 0)
+            {
+                auto [x, y] = Input::GetMousePosition();
+                SL_CORE_TRACE("{0}, {1}", x, y);
+            }
 
             m_Window->OnUpdate();
         }
