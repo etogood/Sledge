@@ -7,3 +7,6 @@
 [submodule "Sledge/vendor/imgui"]
 	path = Sledge/vendor/imgui
 	url = https://github.com/etogood/imgui
+[submodule "Sledge/vendor/glm"]
+	path = Sledge/vendor/glm
+	url = http://github.com/g-truc/glm
