@@ -7,6 +7,8 @@
 #include "Sledge/Events/Event.h"
 #include "Sledge/Events/ApplicationEvent.h"
 
+#include "Sledge/ImGui/ImGuiLayer.h"
+
 namespace Sledge {
     class SLEDGE_API Application {
         public:
@@ -27,6 +29,7 @@ namespace Sledge {
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
     private:

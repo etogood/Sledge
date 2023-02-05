@@ -2,7 +2,6 @@
 #include "Application.h"
 
 #include <glad/glad.h>
-#include <glm/glm.hpp>
 
 #include "Input.h"
 
@@ -19,6 +18,9 @@ namespace Sledge{
 
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback( BIND_EVENT_FN(Application::OnEvent));
+
+        m_ImGuiLayer = new ImGuiLayer();
+        PushOverlay(m_ImGuiLayer);
     }
 
     Application::~Application()
@@ -56,25 +58,20 @@ namespace Sledge{
     }
 
 
-    void Application::Run(){
-        WindowResizeEvent e(1280, 720);
-        SL_TRACE(e);
-        glClearColor(1, 0, 1, 1);
-
-        auto time = 0;
+    void Application::Run()
+	{
         while(m_Running)
         {
-            
+            glClearColor(1, 0, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
-            time++;
-            if (time % 60 == 0)
-            {
-                auto [x, y] = Input::GetMousePosition();
-                SL_CORE_TRACE("{0}, {1}", x, y);
-            }
+
+            m_ImGuiLayer->Begin();
+            for (Layer* layer : m_LayerStack)
+                layer->OnImGuiRender();
+            m_ImGuiLayer->End();
 
             m_Window->OnUpdate();
         }
