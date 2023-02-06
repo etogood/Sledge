@@ -9,12 +9,12 @@ public:
 
     void OnUpdate() override
     {
-        SL_INFO("ExampleLayer::Update");
+        //SL_INFO("ExampleLayer::Update");
     }
 
     void OnEvent(Sledge::Event& e) override
     {
-        SL_TRACE("{0}", e);
+		//SL_TRACE("{0}", e);
     }
 };
 

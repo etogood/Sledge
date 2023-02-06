@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef SL_PLATFORM_WINDOWS
+#if HZ_DYNAMIC_LINK
     #ifdef SL_BUILD_DLL
         #define SLEDGE_API __declspec(dllexport)
     #else
         #define SLEDGE_API __declspec(dllimport)
     #endif
+#else
+	#define SLEDGE_API
+#endif
 #elif defined(__APPLE__)
 	#include <TargetConditionals.h>
 #else

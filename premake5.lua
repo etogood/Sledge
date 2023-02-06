@@ -23,9 +23,10 @@ group ""
 
 project "Sledge"
     location "Sledge"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -58,7 +59,6 @@ project "Sledge"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines 
@@ -68,15 +68,10 @@ project "Sledge"
             "GLFW_INCLUDE_NONE",
             "IMGL3W_IMPL"
         }
-
-        postbuildcommands 
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/Sandbox/\"")
-        }
         
     filter "configurations:Debug"
         runtime "Debug"
-		symbols "on"
+        symbols "on"
         defines {
             "SL_DEBUG"
         }
@@ -84,12 +79,13 @@ project "Sledge"
     filter "configurations:Release"
         defines "SL_RELEASE"
         runtime "Release"
-		optimize "on"
+        optimize "on"
         
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
     staticruntime "off"
 
     targetdir ("bin/" .. outputDir .. "/%{prj.name}")
@@ -114,7 +110,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines 
@@ -124,12 +119,11 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "SL_DEBUG"
-        symbols "On"
+        symbols "on"
         runtime "Debug"
         
 
     filter "configurations:Release"
         defines "SL_RELEASE"
-        optimize "On"
+        optimize "on"
         runtime "Release"
-        

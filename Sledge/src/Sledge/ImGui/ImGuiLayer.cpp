@@ -4,8 +4,7 @@
 #include "imgui.h"
 #include "glad/glad.h"
 
-#include "backends/imgui_impl_glfw.cpp"
-#include "backends/imgui_impl_opengl3.cpp"
+#include "ImGuiBuild.cpp"
 
 #include "Sledge/Application.h"
 
@@ -65,7 +64,7 @@ namespace Sledge
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize = ImVec2(static_cast<float>(app.GetWindow().GetWidth()), static_cast<float>(app.GetWindow().GetHeight()));
 
 		// Rendering
 		ImGui::Render();
@@ -85,6 +84,4 @@ namespace Sledge
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 	}
-
-
 }
