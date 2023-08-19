@@ -1,5 +1,5 @@
 # Sledge
-OpenGL 3D Engine in progress
+OpenGL 3D Engine in progress (it is not lol)
 
 # Initialization
 ~~~
